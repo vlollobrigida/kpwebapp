@@ -15,12 +15,10 @@ import javax.ws.rs.Produces;
 
 
 import it.keyp.webapp.domain.KeyCustomer;
-//import it.keyp.webapp.domain.KeyEmployee;
 import it.keyp.webapp.ejb.KeyCustomerDAOLocal;
 import it.keyp.webapp.ejb.KeyEmployeeDAOLocal;
 import it.keyp.webapp.interceptors.Logging;
 
-//@Path("/")
 @Path("customers")
 @ApplicationScoped
 @Logging
@@ -33,7 +31,6 @@ public class CustomerControllerRs {
 	KeyEmployeeDAOLocal keyEmployeeDAO;
 
 	@GET
-       // @Path("customers")
 	@Produces("application/json")
 	public KeyCustomer[] getCustomers() {
 		List<KeyCustomer> listKeyCust = keyCustomerDAO.getAllCustomers();
@@ -51,13 +48,5 @@ public class CustomerControllerRs {
 		keyCustomer.setInsertionDate(new Date());
 		return keyCustomerDAO.addCustomers(keyCustomer);
 	}
-	
-//	@GET
-//        @Path("employees")
-//	@Produces("application/json")
-//	public KeyEmployee[] getEmployees() {
-//		List<KeyEmployee> listKeyEmp = keyEmployeeDAO.getAllEmpoyees();
-//		return listKeyEmp.toArray(new KeyEmployee[0]);
-//	}
 
 }
