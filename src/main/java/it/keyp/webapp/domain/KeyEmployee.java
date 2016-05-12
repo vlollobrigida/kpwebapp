@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Entity implementation class for Entity: KeyEmployee
  *
@@ -32,6 +34,7 @@ public class KeyEmployee implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToMany(mappedBy="kpEmployees")
+	@JsonIgnore
 	private List<KeyCustomer> customers;
 
 	public KeyEmployee() {

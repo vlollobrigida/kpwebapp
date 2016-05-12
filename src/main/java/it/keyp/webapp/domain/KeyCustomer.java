@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,7 +39,7 @@ public class KeyCustomer implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date insertionDate;
 
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="EMPLOYEES_CUSTOMERS", joinColumns=@JoinColumn(name="CUSTOMERS_ID"),
 	inverseJoinColumns=@JoinColumn(name="EMPLOYEES_ID"))
 	private List<KeyEmployee> kpEmployees;
