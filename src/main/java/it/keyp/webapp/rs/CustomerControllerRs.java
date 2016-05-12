@@ -12,11 +12,10 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-
+import javax.ws.rs.core.MediaType;
 
 import it.keyp.webapp.domain.KeyCustomer;
 import it.keyp.webapp.ejb.KeyCustomerDAOLocal;
-import it.keyp.webapp.ejb.KeyEmployeeDAOLocal;
 import it.keyp.webapp.interceptors.Logging;
 
 @Path("customers")
@@ -27,11 +26,9 @@ public class CustomerControllerRs {
 
 	@EJB
 	KeyCustomerDAOLocal keyCustomerDAO;
-	@EJB
-	KeyEmployeeDAOLocal keyEmployeeDAO;
 
 	@GET
-	@Produces("application/json")
+	@Produces(MediaType.APPLICATION_JSON)
 	public KeyCustomer[] getCustomers() {
 		List<KeyCustomer> listKeyCust = keyCustomerDAO.getAllCustomers();
 		return listKeyCust.toArray(new KeyCustomer[0]);

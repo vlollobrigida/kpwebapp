@@ -7,6 +7,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import it.keyp.webapp.domain.KeyEmployee;
 import it.keyp.webapp.ejb.KeyEmployeeDAOLocal;
@@ -20,7 +21,7 @@ public class EmployeeControllerRs {
 	KeyEmployeeDAOLocal keyEmployeeDAO;
 	
 	@GET
-	@Produces("application/json")
+	@Produces(MediaType.APPLICATION_JSON)
 	public KeyEmployee[] getEmployees() {
 		List<KeyEmployee> listKeyEmp = keyEmployeeDAO.getAllEmpoyees();
 		return listKeyEmp.toArray(new KeyEmployee[0]);
