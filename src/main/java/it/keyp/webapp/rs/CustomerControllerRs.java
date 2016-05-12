@@ -30,11 +30,6 @@ public class CustomerControllerRs {
 	@Produces(MediaType.APPLICATION_JSON)
 	public KeyCustomer[] getCustomers() {
 		List<KeyCustomer> listKeyCust = keyCustomerDAO.getAllCustomers();
-		System.out.println("List size is: " + listKeyCust.size());
-		for(KeyCustomer keyCust : listKeyCust) {
-			System.out.println("Name of customer is: " + keyCust.getName());
-		}
-		System.out.println("Array size is: " + listKeyCust.toArray(new KeyCustomer[0]).length);
 		return listKeyCust.toArray(new KeyCustomer[0]);
 	}
 
