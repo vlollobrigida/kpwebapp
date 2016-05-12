@@ -15,15 +15,16 @@ import javax.ws.rs.Produces;
 
 
 import it.keyp.webapp.domain.KeyCustomer;
-import it.keyp.webapp.domain.KeyEmployee;
+//import it.keyp.webapp.domain.KeyEmployee;
 import it.keyp.webapp.ejb.KeyCustomerDAOLocal;
 import it.keyp.webapp.ejb.KeyEmployeeDAOLocal;
 import it.keyp.webapp.interceptors.Logging;
 
-@Path("/")
+//@Path("/")
+@Path("customers")
 @ApplicationScoped
 @Logging
-public class ControllerRs {
+public class CustomerControllerRs {
 
 
 	@EJB
@@ -32,7 +33,7 @@ public class ControllerRs {
 	KeyEmployeeDAOLocal keyEmployeeDAO;
 
 	@GET
-        @Path("customers")
+       // @Path("customers")
 	@Produces("application/json")
 	public KeyCustomer[] getCustomers() {
 		List<KeyCustomer> listKeyCust = keyCustomerDAO.getAllCustomers();
@@ -51,12 +52,12 @@ public class ControllerRs {
 		return keyCustomerDAO.addCustomers(keyCustomer);
 	}
 	
-	@GET
-        @Path("employees")
-	@Produces("application/json")
-	public KeyEmployee[] getEmployees() {
-		List<KeyEmployee> listKeyEmp = keyEmployeeDAO.getAllEmpoyees();
-		return listKeyEmp.toArray(new KeyEmployee[0]);
-	}
+//	@GET
+//        @Path("employees")
+//	@Produces("application/json")
+//	public KeyEmployee[] getEmployees() {
+//		List<KeyEmployee> listKeyEmp = keyEmployeeDAO.getAllEmpoyees();
+//		return listKeyEmp.toArray(new KeyEmployee[0]);
+//	}
 
 }
