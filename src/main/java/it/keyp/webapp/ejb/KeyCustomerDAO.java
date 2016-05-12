@@ -22,7 +22,12 @@ public class KeyCustomerDAO implements KeyCustomerDAOLocal{
 	 * @see it.keyp.webapp.KeyCustomerDAOLocal#getAllCustomers()
 	 */
 	public List<KeyCustomer> getAllCustomers() {
-		return em.createNamedQuery("KeyCustomer.findAll", KeyCustomer.class).getResultList();
+		List<KeyCustomer> listKeyCust = em.createNamedQuery("KeyCustomer.findAll", KeyCustomer.class).getResultList();
+		for(KeyCustomer keyCust : listKeyCust) {
+			keyCust.getKpEmployees();
+		}
+		//return em.createNamedQuery("KeyCustomer.findAll", KeyCustomer.class).getResultList();
+		return listKeyCust;
 	}
 
 	/*
