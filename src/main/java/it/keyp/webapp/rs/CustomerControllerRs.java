@@ -22,8 +22,7 @@ import it.keyp.webapp.interceptors.Logging;
 @ApplicationScoped
 @Logging
 public class CustomerControllerRs {
-
-
+	
 	@EJB
 	KeyCustomerDAOLocal keyCustomerDAO;
 
@@ -31,6 +30,7 @@ public class CustomerControllerRs {
 	@Produces(MediaType.APPLICATION_JSON)
 	public KeyCustomer[] getCustomers() {
 		List<KeyCustomer> listKeyCust = keyCustomerDAO.getAllCustomers();
+		System.out.println(listKeyCust.size());
 		return listKeyCust.toArray(new KeyCustomer[0]);
 	}
 
