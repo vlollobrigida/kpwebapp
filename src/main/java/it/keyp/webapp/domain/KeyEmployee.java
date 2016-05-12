@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.Long;
 import java.lang.String;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -20,11 +21,18 @@ public class KeyEmployee implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String name;
+	
 	private String surname;
+	
 	@Temporal(TemporalType.DATE)
 	private Date birthdate;
+	
 	private static final long serialVersionUID = 1L;
+	
+	@ManyToMany
+	private List<KeyCustomer> customers;
 
 	public KeyEmployee() {
 		super();
@@ -51,12 +59,20 @@ public class KeyEmployee implements Serializable {
 		this.surname = surname;
 	}
 	
-	public Date getBirthDate() {
+	public Date getBirthdate() {
 		return birthdate;
 	}
 	
-	public void setBirthDate(Date birthdate) {
+	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
+	}
+	
+	public List<KeyCustomer> getCustomers() {
+		return customers;
+	}
+	
+	public void setCustomers(List<KeyCustomer> customers) {
+		this.customers = customers;
 	}
    
 }

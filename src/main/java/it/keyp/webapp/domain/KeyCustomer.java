@@ -5,11 +5,13 @@ package it.keyp.webapp.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -33,6 +35,9 @@ public class KeyCustomer implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	private Date insertionDate;
+	
+	@ManyToMany(mappedBy="customers")
+	private List<KeyEmployee> kpEmployees;
 
 	public String getName() {
 		return name;
@@ -64,6 +69,14 @@ public class KeyCustomer implements Serializable {
 
 	public void setInsertionDate(Date insertionDate) {
 		this.insertionDate = insertionDate;
+	}
+
+	public List<KeyEmployee> getKpEmployees() {
+		return kpEmployees;
+	}
+
+	public void setKpEmployees(List<KeyEmployee> kpEmployees) {
+		this.kpEmployees = kpEmployees;
 	}
 
 }
