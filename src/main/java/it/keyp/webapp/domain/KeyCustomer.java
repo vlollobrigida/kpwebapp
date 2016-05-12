@@ -40,8 +40,8 @@ public class KeyCustomer implements Serializable {
 	private Date insertionDate;
 
 	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name="employees_customers", joinColumns=@JoinColumn(name="customers_id"),
-	inverseJoinColumns=@JoinColumn(name="employees_id"))
+	@JoinTable(name="EMPLOYEES_CUSTOMERS", joinColumns=@JoinColumn(name="CUSTOMERS_ID"),
+	inverseJoinColumns=@JoinColumn(name="EMPLOYEES_ID"))
 	private List<KeyEmployee> kpEmployees;
 
 	public String getName() {
