@@ -31,7 +31,7 @@ public class KeyEmployee implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="kpEmployees", fetch=FetchType.EAGER)
 	private List<KeyCustomer> customers;
 
 	public KeyEmployee() {
